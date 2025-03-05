@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "raspberry26x32.h": "c",
+        "ctype.h": "c",
+        "_ctype.h": "c",
+        "stdlib.h": "c",
+        "stdio.h": "c"
+    }
+}

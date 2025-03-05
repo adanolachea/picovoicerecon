@@ -1,0 +1,14 @@
+# Target labels
+ picotool-populate
+# Source files and their labels
+/Users/adanolacheamoran/mycode/pico-code/ssd1306_i2c/build/_deps/picotool-subbuild/CMakeFiles/picotool-populate
+/Users/adanolacheamoran/mycode/pico-code/ssd1306_i2c/build/_deps/picotool-subbuild/CMakeFiles/picotool-populate.rule
+/Users/adanolacheamoran/mycode/pico-code/ssd1306_i2c/build/_deps/picotool-subbuild/CMakeFiles/picotool-populate-complete.rule
+/Users/adanolacheamoran/mycode/pico-code/ssd1306_i2c/build/_deps/picotool-subbuild/picotool-populate-prefix/src/picotool-populate-stamp/picotool-populate-build.rule
+/Users/adanolacheamoran/mycode/pico-code/ssd1306_i2c/build/_deps/picotool-subbuild/picotool-populate-prefix/src/picotool-populate-stamp/picotool-populate-configure.rule
+/Users/adanolacheamoran/mycode/pico-code/ssd1306_i2c/build/_deps/picotool-subbuild/picotool-populate-prefix/src/picotool-populate-stamp/picotool-populate-download.rule
+/Users/adanolacheamoran/mycode/pico-code/ssd1306_i2c/build/_deps/picotool-subbuild/picotool-populate-prefix/src/picotool-populate-stamp/picotool-populate-install.rule
+/Users/adanolacheamoran/mycode/pico-code/ssd1306_i2c/build/_deps/picotool-subbuild/picotool-populate-prefix/src/picotool-populate-stamp/picotool-populate-mkdir.rule
+/Users/adanolacheamoran/mycode/pico-code/ssd1306_i2c/build/_deps/picotool-subbuild/picotool-populate-prefix/src/picotool-populate-stamp/picotool-populate-patch.rule
+/Users/adanolacheamoran/mycode/pico-code/ssd1306_i2c/build/_deps/picotool-subbuild/picotool-populate-prefix/src/picotool-populate-stamp/picotool-populate-test.rule
+/Users/adanolacheamoran/mycode/pico-code/ssd1306_i2c/build/_deps/picotool-subbuild/picotool-populate-prefix/src/picotool-populate-stamp/picotool-populate-update.rule

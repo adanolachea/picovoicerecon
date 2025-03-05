@@ -1,0 +1,14 @@
+# Target labels
+ picotoolBuild
+# Source files and their labels
+/Users/adanolacheamoran/mycode/pico-code/ssd1306_i2c/build/pico-sdk/src/rp2040/boot_stage2/CMakeFiles/picotoolBuild
+/Users/adanolacheamoran/mycode/pico-code/ssd1306_i2c/build/pico-sdk/src/rp2040/boot_stage2/CMakeFiles/picotoolBuild.rule
+/Users/adanolacheamoran/mycode/pico-code/ssd1306_i2c/build/pico-sdk/src/rp2040/boot_stage2/CMakeFiles/picotoolBuild-complete.rule
+/Users/adanolacheamoran/mycode/pico-code/ssd1306_i2c/build/pico-sdk/src/rp2040/boot_stage2/picotool/src/picotoolBuild-stamp/picotoolBuild-build.rule
+/Users/adanolacheamoran/mycode/pico-code/ssd1306_i2c/build/pico-sdk/src/rp2040/boot_stage2/picotool/src/picotoolBuild-stamp/picotoolBuild-configure.rule
+/Users/adanolacheamoran/mycode/pico-code/ssd1306_i2c/build/pico-sdk/src/rp2040/boot_stage2/picotool/src/picotoolBuild-stamp/picotoolBuild-download.rule
+/Users/adanolacheamoran/mycode/pico-code/ssd1306_i2c/build/pico-sdk/src/rp2040/boot_stage2/picotool/src/picotoolBuild-stamp/picotoolBuild-install.rule
+/Users/adanolacheamoran/mycode/pico-code/ssd1306_i2c/build/pico-sdk/src/rp2040/boot_stage2/picotool/src/picotoolBuild-stamp/picotoolBuild-mkdir.rule
+/Users/adanolacheamoran/mycode/pico-code/ssd1306_i2c/build/pico-sdk/src/rp2040/boot_stage2/picotool/src/picotoolBuild-stamp/picotoolBuild-patch.rule
+/Users/adanolacheamoran/mycode/pico-code/ssd1306_i2c/build/pico-sdk/src/rp2040/boot_stage2/picotool/src/picotoolBuild-stamp/picotoolBuild-test.rule
+/Users/adanolacheamoran/mycode/pico-code/ssd1306_i2c/build/pico-sdk/src/rp2040/boot_stage2/picotool/src/picotoolBuild-stamp/picotoolBuild-update.rule

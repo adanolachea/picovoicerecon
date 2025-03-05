@@ -1,0 +1,5 @@
+/Users/adanolacheamoran/mycode/pico-code/ssd1306_i2c/build/_deps/picotool/picotool
+/Users/adanolacheamoran/mycode/pico-code/ssd1306_i2c/build/_deps/picotool/picotoolTargets.cmake
+/Users/adanolacheamoran/mycode/pico-code/ssd1306_i2c/build/_deps/picotool/picotoolTargets-release.cmake
+/Users/adanolacheamoran/mycode/pico-code/ssd1306_i2c/build/_deps/picotool/picotoolConfig.cmake
+/Users/adanolacheamoran/mycode/pico-code/ssd1306_i2c/build/_deps/picotool/picotoolConfigVersion.cmake

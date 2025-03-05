@@ -1,0 +1,180 @@
+
+/*
+;=======  (stereo) get 16 bit in 16 bit frame =======
+.program inmp441
+.origin 0
+.side_set 2  ; ws/clk
+public inmp441_start:
+.wrap_target
+; left channel
+    set y, 6                    side 0b00  ; ignore 1+8 bit
+    nop                         side 0b01  ; one clock delay
+    nop                         side 0b00
+    in pins, 1                  side 0b01  ; MSB signed bit
+left_idle:          
+    nop                         side 0b00
+    jmp y--, left_idle          side 0b01  ; one clock delay+MSB signed bit+7 ignore bit=9 bits
+
+    set x, 14                   side 0b00 ; other 15 bits
+left_channel_loop:
+    in  pins, 1                 side 0b01
+    jmp x--, left_channel_loop  side 0b00  ; 9+15 clocks
+
+    set y, 7                    side 0b01 ; last 8 clock
+left_idle_1:          
+    nop                         side 0b00
+    jmp y--, left_idle_1        side 0b01 ; cycle:9+15+8=32
+
+
+; right channel
+    set y, 6                    side 0b10  ; ignore 1+8 bit
+    nop                         side 0b11  ; one clock delay
+    nop                         side 0b10
+    in pins, 1                  side 0b11  ; MSB signed bit
+right_idle:          
+    nop                         side 0b10
+    jmp y--, right_idle          side 0b11  ; one clock delay+MSB signed bit+7 ignore bit=9 bits
+
+    set x, 14                   side 0b10
+right_channel_loop:
+    in  pins, 1                 side 0b11
+    jmp x--, right_channel_loop  side 0b10  ; 9+15 clocks
+
+    set y, 7                    side 0b11 
+right_idle_1:          
+    nop                         side 0b10
+    jmp y--, right_idle_1        side 0b11 ; cycle:9+15+8
+
+.wrap
+;=======  (stereo) get 16 bit in 16 bit frame =======
+*/
+
+
+
+
+;=======  (mono, left channel) get 16 bit in 16 bit frame =======
+.program inmp441
+.origin 0
+.side_set 2  ; ws/clk
+public inmp441_start:
+.wrap_target
+; left channel
+    set y, 6                    side 0b00  ; ignore 1+8 bit
+    nop                         side 0b01  ; one clock delay
+    nop                         side 0b00
+    in pins, 1                  side 0b01  ; MSB signed bit
+left_idle:          
+    nop                         side 0b00
+    jmp y--, left_idle          side 0b01  ; one clock delay+MSB signed bit+7 ignore bit=9 bits
+
+    set x, 14                   side 0b00
+left_channel_loop:
+    in  pins, 1                 side 0b01
+    jmp x--, left_channel_loop  side 0b00  ; 9+15 clocks
+
+    set y, 7                    side 0b01 
+left_idle_1:          
+    nop                         side 0b00
+    jmp y--, left_idle_1        side 0b01 ; cycle:9+15+8
+
+;right channel 
+    set y, 30                   side 0b10
+right_idle_loop:
+    nop                         side 0b11
+    jmp y--, right_idle_loop    side 0b10
+    nop                         side 0b11
+.wrap
+;=======  (mono, left channel) =======
+
+
+/*
+;======= shift out 7 bit and get 16 bit in 32 bit frame =======
+.define IGNORE_MSB_BITS  (6+1)   ; one bit delay
+.program inmp441
+.origin 0
+.side_set 2  ; ws/clk
+public inmp441_start:
+
+.wrap_target
+; left channel
+    set y, (IGNORE_MSB_BITS-2)  side 0b00
+left_idle:          
+    nop                         side 0b01
+    jmp y--, left_idle          side 0b00
+    nop                         side 0b01
+
+    set x, 15                   side 0b00 ; ignore msb 8 bits and capture the other 16 bits
+left_channel_loop:
+    in  pins, 1                 side 0b01
+    jmp x--, left_channel_loop  side 0b00
+    nop                         side 0b01
+
+    set y, (13-IGNORE_MSB_BITS) side 0b00
+left_idle_1:          
+    nop                         side 0b01
+    jmp y--, left_idle_1          side 0b00
+    in NULL, 16                 side 0b01  
+
+
+; right channel
+    set y, (SHIFT_OUT_BITS-2)  side 0b10
+right_idle:          
+    nop                         side 0b11
+    jmp y--, right_idle          side 0b10
+    nop                         side 0b11
+
+    set x, 15                   side 0b10
+right_channel_loop:
+    in  pins, 1                 side 0b11
+    jmp x--, right_channel_loop  side 0b10
+    nop                         side 0b11
+
+    set y, (13-SHIFT_OUT_BITS) side 0b10
+right_idle_1:          
+    nop                         side 0b11
+    jmp y--, right_idle_1          side 0b10
+    in NULL, 16                 side 0b11  
+.wrap
+;======= shift out 7 bit and get 16 bit in 32 bit frame =======
+*/
+
+
+/*
+;====== (STEREO) INMP441 I2S 32 bit per sample =======================
+.program inmp441
+.origin 0
+.side_set 2  ; ws/clk
+public inmp441_start:
+.wrap_target
+; left channel
+set x, 22                       side 0b00
+nop                             side 0b01 ;delay one SCK clock
+nop                             side 0b00 
+left_channel_loop:
+    in  pins, 1                 side 0b01 ; ; 24 bits 
+    jmp x--, left_channel_loop  side 0b00
+    in pins, 1                  side 0b01
+
+    set y, 5                    side 0b00 ; 7 SCK clocks
+left_idle:          
+    nop                         side 0b01
+    jmp y--, left_idle          side 0b00
+    in NULL, 8                  side 0b01 
+
+; right channel
+set x, 22                       side 0b10
+nop                             side 0b11
+nop                             side 0b10 
+right_channel_loop:
+    in  pins, 1                 side 0b11
+    jmp x--, right_channel_loop side 0b10
+    in pins, 1                  side 0b11
+
+    set y, 5                    side 0b10
+right_idle:          
+    nop                         side 0b11
+    jmp y--, right_idle         side 0b10
+    in NULL, 8                  side 0b11  
+.wrap
+
+*/
